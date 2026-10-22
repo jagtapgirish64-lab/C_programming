@@ -1,0 +1,71 @@
+/*
+Calculate Shopping Discount
+
+Problem Statement: Accept the total purchase amount and calculate the final payable amount after applying the following discount. Negative purchase amounts are invalid.
+---------------------------------------------------------
+Purchase Amount             Discount
+------------------------------------------------------------
+Below 71000                     0%
+₹1000 to below ₹5000            10%
+₹5000 and above                 20%
+--------------------------------------------------------
+Expected Output:
+.Input: 800->Payable Amount = 800.00
+Input: 2000 -Payable Amount = 1800.00
+Input: 6000 -+ Payable Amount = 4800.00
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+//////////////////////////////////////////////////////
+//
+//  Function Name:Calculate Shopping Discount
+//  Description  : checking the shopping discount from user 
+//  Input        : int
+//  output       : char, flaot
+//  Author       : Girish Jagtap
+//  Date         : 22/10/2026
+//////////////////////////////////////////////////////////
+
+
+void CalculateDiscount(float fAmount)
+{
+    float fDiscount = 0.0f;
+    float fFinalAmount = 0.0f;
+
+    if(fAmount < 0)
+    {
+        printf("Invalid purchase amount\n");
+    }
+    else if(fAmount < 1000)
+    {
+        fDiscount = 0;
+        fFinalAmount = fAmount - fDiscount;
+        printf("Payable Amount = %.2f\n", fFinalAmount);
+    }
+    else if(fAmount < 5000)
+    {
+        fDiscount = fAmount * 0.10f;
+        fFinalAmount = fAmount - fDiscount;
+        printf("Payable Amount = %.2f\n", fFinalAmount);
+    }
+    else
+    {
+        fDiscount = fAmount * 0.20f;
+        fFinalAmount = fAmount - fDiscount;
+        printf("Payable Amount = %.2f\n", fFinalAmount);
+    }
+}
+
+int main()
+{
+    float fAmount = 0.0f;
+
+    printf("Enter purchase amount: ");
+    scanf("%f", &fAmount);
+
+    CalculateDiscount(fAmount);
+
+    return EXIT_SUCCESS;
+}
